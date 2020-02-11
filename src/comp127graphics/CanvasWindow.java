@@ -310,6 +310,13 @@ public class CanvasWindow {
     }
 
     /**
+     * Transfers focus to the canvas so that it can get keyboard events
+     */
+    public void requestFocus(){
+        canvas.requestFocus();
+    }
+
+    /**
      * Closes the canvas window.
      */
     public void closeWindow() {

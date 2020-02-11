@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/activityStarterCode" />
       <excludeFolder url="file://$MODULE_DIR$/test/activityStarterCode" />
       <excludeFolder url="file://$MODULE_DIR$/test/stackImplementation" />
+      <excludeFolder url="file://$MODULE_DIR$/test/webSpider" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
