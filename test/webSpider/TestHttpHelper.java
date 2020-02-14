@@ -5,8 +5,6 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 
-import
-
 public class TestHttpHelper {
 	private static final String HTML_TITLE = "<title>Macalester College: Private Liberal Arts College</title>";
 
