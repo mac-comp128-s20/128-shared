@@ -20,17 +20,24 @@ public class ListIteratingExamples {
         //Generally discouraged for lists, particularly LinkedLists
         for(int i=0; i < companies.size(); i++){
             System.out.println(companies.get(i));
-            //THis is bad! Don't modify the list while iterating with a for loop
-            if (i == 1) {
-                companies.remove(0);
-            }
+            //This is bad! Don't modify the list while iterating with a for loop
+           // if (i == 2) {
+           //     companies.remove(0);
+            //}
         }
 
+        System.out.println("=====================");
         for(String cur : companies ){
             System.out.println(cur);
 
+            // This is bad and will throw a concurrent Modification exception. Use the iterator.remove method instead with an iterator
+            if (cur.equals("Google")){
+                companies.remove(cur);
+            }
+
         }
 
+        System.out.println("=====================");
         Iterator<String> iterator = companies.iterator();
         while(iterator.hasNext()){
             String current = iterator.next();
