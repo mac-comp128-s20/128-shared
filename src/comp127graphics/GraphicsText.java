@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.font.TextLayout;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
@@ -212,6 +213,18 @@ public class GraphicsText extends GraphicsObject implements Fillable {
             metrics = g.getFontMetrics();
         }
         return metrics;
+    }
+
+    /**
+     * Returns true if the letter shapes overlap
+     * @param other
+     * @return
+     */
+    public boolean intersects(GraphicsText other){
+        Area area = new Area(getTextShape());
+        Area otherArea = new Area(other.getTextShape());
+        area.intersect(otherArea);
+        return !area.isEmpty();
     }
 
     public boolean testHit(double x, double y) {

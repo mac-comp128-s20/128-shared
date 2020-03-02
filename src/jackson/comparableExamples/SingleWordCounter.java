@@ -8,6 +8,7 @@ public class SingleWordCounter implements Comparable<SingleWordCounter> {
     //inc count
     // get count
 
+    @Override
     public int compareTo(SingleWordCounter other){
         if (this.count < other.count){
             return -1;
