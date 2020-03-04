@@ -126,7 +126,7 @@ public class Student implements Comparable<Student> {
     @Override
     public int hashCode() {
         //TODO: Complete this part according to the questions in Task 2
-        return 17;
+        
 
     }
 }
