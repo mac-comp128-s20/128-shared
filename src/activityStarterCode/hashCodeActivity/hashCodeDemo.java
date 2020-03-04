@@ -1,9 +1,7 @@
 package hashCodeActivity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 
 
 public class hashCodeDemo {
@@ -30,17 +28,17 @@ public class hashCodeDemo {
 
 // Insert all elements into buckets based on their hash value
         students.forEach(value -> {
-            if (!collisionMap.containsKey(value.hashCode())) {
-                collisionMap.put(value.hashCode(), new ArrayList<>());
-                allEntriesMap.put(value.hashCode(), new ArrayList<>());
-                allEntriesMap.get(value.hashCode()).add(value);
-
-            }
-            else {
-                collisionMap.get(value.hashCode()).add(value);
-                allEntriesMap.get(value.hashCode()).add(value);
-
-            }
+            //TODO: Add the collided entries into the collisionMap as <hash code, [list of collided entries]> and
+            // add all entries into the allEntriesMap in the same way
+            // If no such hash code is generated before, place the code and an empty list to the collisionMap
+            // also do the same for the allEntriesMap
+            // Otherwise (if this code is already generated before, then this is a collision)
+            // add this collided object to the list corresponding to the hash code key in collisionMap and
+            // also do the same for allEntriesMap
+            
+            
+            
+            
         });
 
         // Sum up the number of values in each bucket
@@ -48,10 +46,13 @@ public class hashCodeDemo {
         System.out.printf("Number of collisions: %d\n", collisions);
 
         System.out.println("============== Showing Collided Values ========================");
-        collisionMap.forEach((key, value) -> System.out.println(key + ":" + value));
+        //TODO: Display the <key, value> entries in collisionMap
+        
+        
         System.out.println("\n============== Showing All Values ========================");
-        allEntriesMap.forEach((key, value) -> System.out.println(key + ":" + value));
-
+        //TODO: Display the <key, value> entries in allEntriesMap
+        
+        
 
     }
 }
