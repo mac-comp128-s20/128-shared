@@ -9,6 +9,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/activityStarterCode" />
       <excludeFolder url="file://$MODULE_DIR$/test/activityStarterCode" />
       <excludeFolder url="file://$MODULE_DIR$/test/listImplementation" />
+      <excludeFolder url="file://$MODULE_DIR$/test/mapImplementation" />
       <excludeFolder url="file://$MODULE_DIR$/test/stackImplementation" />
       <excludeFolder url="file://$MODULE_DIR$/test/webSpider" />
     </content>
