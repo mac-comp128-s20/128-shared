@@ -30,6 +30,11 @@ public class BinaryTree<E> implements Serializable {
          */
         public Node<E> right;
 
+        /**
+         * Reference to the parent
+         */
+        public Node<E> parent;
+
         // Constructors
 
         /**
@@ -41,6 +46,7 @@ public class BinaryTree<E> implements Serializable {
             this.data = data;
             left = null;
             right = null;
+            parent = null;
         }
 
         // Methods
@@ -88,11 +94,13 @@ public class BinaryTree<E> implements Serializable {
         root = new Node<E>(data);
         if (leftTree != null) {
             root.left = leftTree.root;
+            leftTree.root.parent = root;
         } else {
             root.left = null;
         }
         if (rightTree != null) {
             root.right = rightTree.root;
+            rightTree.root.parent = root;
         } else {
             root.right = null;
         }

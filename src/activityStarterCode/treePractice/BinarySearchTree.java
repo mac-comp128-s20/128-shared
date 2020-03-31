@@ -70,7 +70,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
      * Comparable interface.
      */
     public boolean add(E item) {
-        root = add(root, item);
+        root = add(root, null, item);
         return addReturn;
     }
 
@@ -84,22 +84,24 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
      * @post The data field addReturn is set true if the item is added to
      * the tree, false if the item is already in the tree.
      */
-    private Node<E> add(Node<E> localRoot, E item) {
+    private Node<E> add(Node<E> localRoot, Node<E> parent, E item) {
         if (localRoot == null) {
             // item is not in the tree � insert it.
             addReturn = true;
-            return new Node<E>(item);
+            Node<E> newNode = new Node<E>(item);
+            newNode.parent = parent;
+            return newNode;
         } else if (item.compareTo(localRoot.data) == 0) {
             // item is equal to localRoot.data
             addReturn = false;
             return localRoot;
         } else if (item.compareTo(localRoot.data) < 0) {
             // item is less than localRoot.data
-            localRoot.left = add(localRoot.left, item);
+            localRoot.left = add(localRoot.left, localRoot, item);
             return localRoot;
         } else {
             // item is greater than localRoot.data
-            localRoot.right = add(localRoot.right, item);
+            localRoot.right = add(localRoot.right, localRoot, item);
             return localRoot;
         }
     }
@@ -143,10 +145,12 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
         if (compResult < 0) {
             // item is smaller than localRoot.data.
             localRoot.left = delete(localRoot.left, item);
+            localRoot.left.parent = localRoot;
             return localRoot;
         } else if (compResult > 0) {
             // item is larger than localRoot.data.
             localRoot.right = delete(localRoot.right, item);
+            localRoot.right.parent = localRoot;
             return localRoot;
         } else {
             // item is at local root.
@@ -168,6 +172,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
                     localRoot.data = localRoot.left.data;
                     // Replace the left child with its left child.
                     localRoot.left = localRoot.left.left;
+                    localRoot.left.parent = localRoot;
                     return localRoot;
                 } else {
                     // Search for the inorder predecessor (ip) and
@@ -196,6 +201,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
         if (parent.right.right == null) {
             E returnValue = parent.right.data;
             parent.right = parent.right.left;
+            parent.right.parent = parent;
             return returnValue;
         } else {
             return findLargestChild(parent.right);
