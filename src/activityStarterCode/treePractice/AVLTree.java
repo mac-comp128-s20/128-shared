@@ -195,11 +195,15 @@ public class AVLTree<E extends Comparable<E>> extends BinarySearchTree<E> {
         if (compResult < 0) {
             // item is smaller than localRoot.data.
             localRoot.left = delete((AVLNode<E>)localRoot.left, item);
-            localRoot.left.parent = localRoot;
+            if (localRoot.left != null) {
+                localRoot.left.parent = localRoot;
+            }
         } else if (compResult > 0) {
             // item is larger than localRoot.data.
             localRoot.right = delete((AVLNode<E>)localRoot.right, item);
-            localRoot.right.parent = localRoot;
+            if (localRoot.right != null) {
+                localRoot.right.parent = localRoot;
+            }
         } else {
             // item is at local root.
             deleteReturn = localRoot.data;

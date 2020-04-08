@@ -145,12 +145,16 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
         if (compResult < 0) {
             // item is smaller than localRoot.data.
             localRoot.left = delete(localRoot.left, item);
-            localRoot.left.parent = localRoot;
+            if (localRoot.left != null) {
+                localRoot.left.parent = localRoot;
+            }
             return localRoot;
         } else if (compResult > 0) {
             // item is larger than localRoot.data.
             localRoot.right = delete(localRoot.right, item);
-            localRoot.right.parent = localRoot;
+            if (localRoot.right != null) {
+                localRoot.right.parent = localRoot;
+            }
             return localRoot;
         } else {
             // item is at local root.
@@ -172,7 +176,9 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
                     localRoot.data = localRoot.left.data;
                     // Replace the left child with its left child.
                     localRoot.left = localRoot.left.left;
-                    localRoot.left.parent = localRoot;
+                    if (localRoot.left != null) {
+                        localRoot.left.parent = localRoot;
+                    }
                     return localRoot;
                 } else {
                     // Search for the inorder predecessor (ip) and
@@ -201,7 +207,9 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
         if (parent.right.right == null) {
             E returnValue = parent.right.data;
             parent.right = parent.right.left;
-            parent.right.parent = parent;
+            if (parent.right != null) {
+                parent.right.parent = parent;
+            }
             return returnValue;
         } else {
             return findLargestChild(parent.right);
