@@ -1,7 +1,7 @@
 package treePractice;
 
 public class AVLUsage {
-    public static void Main(String[] args){
+    public static void main(String[] args){
         AVLTree<Integer> avlTree = new AVLTree<>();
         /* Constructing tree given in the above figure */
         avlTree.add(9);
