@@ -19,8 +19,8 @@ public class WikiRacer {
         graph.addAttribute("ui.stylesheet", "edge { fill-color: grey; arrow-size: 3px, 2px; } node { size: 2px, 2px;} edge.onPath { fill-color: red; z-index: 99999999; } edge.potentialPath { fill-color: yellow; z-index: 88888888; }");
 
         // Uncomment the following two lines to improve the quality of the graph display (while taking longer to render)
-        graph.addAttribute("ui.quality");
-        graph.addAttribute("ui.antialias");
+        //graph.addAttribute("ui.quality");
+        //graph.addAttribute("ui.antialias");
 
 
         //TODO: Find a path between the start page and endPage:
